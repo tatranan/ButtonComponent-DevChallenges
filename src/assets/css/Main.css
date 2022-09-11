@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --background-color:#FAFBFD;
+    --base-color:#F7542E;
+    --secondary-color:#090F31;
+
+    --text-default-color:#9E9E9E;
+
+    --gray-color:#4F4F4F;
+    --gray-color-2:#E0E0E0;
+    --text-primary-color:#FAFBFD;
+}
+.base-color{
+    color:var(--base-color);
+}
+.secondary-color{
+    color:var(--secondary-color);
+}
+.container-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.sidebar{
+    width: 240px;
+    background-color: var(--background-color);
+    height: 100vh;
+}
+.sidebar-content{
+    margin:50px 55px;
+}
+.logo-link{
+    text-decoration: none;
+}
+.logo-text{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.nav{
+    margin-top: 120px;
+}
+.nav-wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.nav-item a{
+    text-decoration: none;
+    color: var(--text-default-color);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20.27px;
+}
+.nav-item a:hover,.nav-item a:active{
+    color: var(--secondary-color);
+}
