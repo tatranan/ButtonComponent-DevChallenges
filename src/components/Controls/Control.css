@@ -1,0 +1,13 @@
+.control{
+    padding: 15px 20px;
+}
+.table-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-row-item {
+    font-weight: bold;
+    font-size: 13px;
+    color: rgb(153, 153, 153);
+}

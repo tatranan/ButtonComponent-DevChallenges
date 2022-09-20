@@ -1,38 +1,37 @@
-import logo from '../../assets/images/devchallenges.png';
-import '../../assets/css/Main.css'
+import { Link } from 'react-router-dom';
+import './Sidebar.css'
 
-export function Sidebar(){
+export function Sidebar() {
     return (
         <div className="sidebar">
             <div className="sidebar-content">
 
                 <div className="logo">
-                    <a href="#" className="logo-link">
+                    <Link to="/" className="logo-link">
                         <span className="logo-text base-color">Dev</span>
                         <span className="logo-text secondary-color">challenges.io</span>
-                    </a>
+                    </Link>
                 </div>
                 <div className="nav">
                     <div className="nav-wrap">
                         <div className="nav-item">
-                            <a href="">Colors</a>
+                            <a href="/#">Colors</a>
                         </div>
                         <div className="nav-item">
-                            <a href="">Typography</a>
+                            <a href="/#">Typography</a>
                         </div>
                         <div className="nav-item">
-                            <a href="">Spaces</a>
+                            <a href="/#">Spaces</a>
                         </div>
                         <div className="nav-item">
-                            <a href="">Buttons</a>
+                            <Link to="/button">Buttons</Link>
                         </div>
                         <div className="nav-item">
-                            <a href="">Inputs</a>
+                            <Link to="/input">Inputs</Link>
                         </div>
                         <div className="nav-item">
-                            <a href="">Grid</a>
+                            <a href="/#">Grid</a>
                         </div>
-
                     </div>
                 </div>
             </div>

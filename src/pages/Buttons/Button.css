@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --default-btn-color: #E0E0E0
+}
+
+.btn {
+    width: 80px;
+    height: 35px;
+
+    font-family: 'Noto Sans JP', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #3F3F3F;
+
+    background: var(--default-btn-color);
+    border-radius: 6px;
+    border: none;
+}
