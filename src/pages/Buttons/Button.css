@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
 
 :root {
-    --default-btn-color: #E0E0E0
+    --default-btn-color: #E0E0E0;
+    --color-test: rgb(158, 158, 158);
 }
 
 .btn {
@@ -20,4 +21,8 @@
     background: var(--default-btn-color);
     border-radius: 6px;
     border: none;
+}
+
+.btn:hover {
+    background-color: rgba( currentColor, 0.1) ;
 }
