@@ -1,122 +1,99 @@
-import React, { useEffect } from "react";
-import { useState } from 'react';
+import React from "react";
+import {useState} from 'react';
 import './Button.css';
 
-export function Button({ variant, disableShadow, disabled }) {
-    const styles = {
+export function Button({variant, disableShadow, disabled}) {
+    let styles = {
         width: '80px',
         height: '35px',
         backgroundColor: '#E0E0E0',
         border: 'none',
         color: 'rgb(63,63,63)',
         boxShadow: '0px 2px 3px rgba(51, 51, 51, 0.2)',
-        red: 63,
-        blue: 63,
-        green: 63,
-        alpha: .4,
     }
-    // const [isActive, setIsActive] = useState(false);
-    const [style, setStyle] = useState(styles);
-    const [isHover, setIsHover] = useState(true);
-    const [color, setColor] = useState(styles);
-    // const [isDisableShadow, setIsDisableShadow] = useState(true);
-    // const [isDisabled, setIsDisabled] = useState(false);
-    const [buttonStyle , setButtonStyle ] = useState(style)
-    useEffect(() => {
-
-        // if (disableShadow) {
-        //     setIsDisableShadow(true);
-        // }
-        // if (disabled) {
-        //     setIsDisabled(true);
-        // }
-        setStyleByVariant(variant);
-
-    }, []);
-
+    let alphaColor = .4;
     const isEmptyProp = (prop) => {
         return Object.keys(prop).length === 0 && prop.constructor === Object;
     }
-    const setStyleByVariant = (variantStyle) => {
-        if (variantStyle && !isEmptyProp(variantStyle)) {
-            switch (variantStyle) {
-                case 'outline':
-                    setStyle({
-                        ...style,
-                        backgroundColor: 'transparent',
-                        border: '1px solid rgb(61, 90, 254)',
-                        color: 'rgb(61, 90, 254)',
-                    });
-                    setColor({
-                        red: 61,
-                        green: 90,
-                        blue: 254,
-                        alpha: .2
-                    })
-                    break;
-                case 'text':
-                    setStyle(prev => ({
-                        ...prev,
-                        backgroundColor: 'transparent',
-                        border: 'none',
-                        color: 'rgb(61, 90, 254)',
-                    }))
-                    setColor({
-                        red: 61,
-                        green: 90,
-                        blue: 254,
-                        alpha: 0.2
-                    })
-                    break;
-                default:
-                    setStyle(prev => ({
-                        ...prev,
-                        backgroundColor: '#E0E0E0',
-                        border: 'none',
-                        color: 'rgb(63,63,63)',
-                    }))
-                    setColor({
-                        red: 63,
-                        blue: 63,
-                        green: 63,
-                        alpha: 0.4
-                    })
-            }
+
+    if (variant && !isEmptyProp(variant)) {
+        switch (variant) {
+            case 'outline':
+                styles = {
+                    ...styles,
+                    backgroundColor: 'transparent',
+                    border: "1px solid rgb(61, 90, 254)",
+                    color: "rgba(61, 90, 254,1)",
+                }
+                alphaColor = 0.1;
+                break;
+            case 'text':
+                styles = {
+                    ...styles,
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    color: 'rgba(61, 90, 254,1)',
+                }
+                alphaColor = 0.1;
+                break;
+            default:
+                styles = {
+                    ...styles,
+                    backgroundColor: '#E0E0E0',
+                    border: 'none',
+                    color: 'rgba(63,63,63,1)',
+                }
         }
     }
+    const [hoverBgColor, setHoverBgColor] = useState(styles.backgroundColor);
+    const [isHover, setIsHover] = useState(false);
 
-    const handleClick = () => {
 
-    };
-    const onMouseEnterHandler = () => {
-        setIsHover(!isHover);
+    if (disabled) {
+        styles = {
+            "color": "rgba(158, 158, 158,1)",
+            "border": "none",
+            "backgroundColor": "#e0e0e0",
+        }
     }
-    // const getColor = ({ red, green, blue, alpha }) => {
-    //     return `rgba(${red},${green},${blue},${alpha})`
-    // }
+    const onMouseEnterHandler = (e) => {
+        setIsHover(!isHover);
+        const rgbColor = getRGBAColor(e.target.style.color)
+        const alpha = e.target.getAttribute('alphacolor');
+        const bgColor = setAlphaRGBA(rgbColor, alpha);
+        setHoverBgColor(bgColor)
+        console.log()
+    }
+    const getRGBAColor = (colorRGBA) => {
+        if (colorRGBA.substring(0, 3) === 'rgb' || colorRGBA.substring(0, 4) === 'rgba') {
+            let [red, green, blue, alpha] = colorRGBA.replace(/^rgba?\(|\s+|\)$/g, '').split(',');
+            return {red, green, blue, alpha};
+        }
+        return {red: 63, green: 63, blue: 63, alpha: 1};
+    }
+    const setAlphaRGBA = (rgb, alpha) => {
+        const {red, green, blue} = rgb;
+        return `rgba(${red},${green},${blue},${alpha})`;
+    }
+// const isDisabledShadow = {
+//     boxShadow: isDisableShadow ? 'none' : style.boxShadow,
+// }
+// const isDisableButton = {
+//     color: isDisabled ? 'rgb(158, 158, 158)' : style.color,
+//     border: isDisabled ? 'none' : style.border,
+//     backgroundColor: isDisabled ? "#e0e0e0" : style.backgroundColor,
+// }
 
-    // const isDisabledShadow = {
-    //     boxShadow: isDisableShadow ? 'none' : style.boxShadow,
-    // }
-    // const isDisableButton = {
-    //     color: isDisabled ? 'rgb(158, 158, 158)' : style.color,
-    //     border: isDisabled ? 'none' : style.border,
-    //     backgroundColor: isDisabled ? "#e0e0e0" : style.backgroundColor,
-    // }
-    // const hoverStyle = {
-    //     backgroundColor: isHover ? getColor(color) : style.backgroundColor,
-    // };
-    
     return (
         <div>
             <button className="btn"
-                style={buttonStyle}
-                onClick={handleClick}
-                onMouseEnter={onMouseEnterHandler}
-                onMouseLeave={onMouseEnterHandler}
-                disabled={disabled}
-
-            >Click</button>
+                    onMouseEnter={onMouseEnterHandler}
+                    onMouseLeave={onMouseEnterHandler}
+                    style={{...styles, backgroundColor: isHover ? hoverBgColor : styles.backgroundColor}}
+                    disabled={disabled}
+                    {...{"alphacolor": alphaColor}}
+            >Click
+            </button>
         </div>
     );
 } 

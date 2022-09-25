@@ -8,7 +8,7 @@ const Buttons = ({ header }) => {
                 <div className="components">
                     <div className="component-item">
                         <div className="component-show">
-                            <Button variant={'outline'} disableShadow />
+                            <Button variant={'outline'}  disabled={false} />
                         </div>
                     </div>
                 </div>
