@@ -19,9 +19,12 @@ const Main = ({header, content}) => {
                                 <div className="component-item">
                                     <div className="component-show">
                                         <Button
-                                            variant={'outline'}
+                                            variant={'text'}
                                             disabled={false}
                                             disableShadow={true}
+                                            endIcon={'local_grocery_store'}
+                                            size={'lg'}
+                                            color={'danger'}
                                         />
                                     </div>
                                 </div>

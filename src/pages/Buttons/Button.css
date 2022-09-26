@@ -2,12 +2,13 @@
 
 :root {
     --default-btn-color: #E0E0E0;
-    --color-test: rgb(158, 158, 158);
+    --color-test: rgb(41, 98, 255);
+    --color-test-2: rgba(0, 57, 203, 0.66);
+;
 }
 
 .btn {
-    width: 80px;
-    height: 35px;
+    min-width: 80px;
     font-family: 'Noto Sans JP', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -15,8 +16,30 @@
     line-height: 20px;
     text-align: center;
     color: #3F3F3F;
-    background: var(--default-btn-color);
+    background-color: var(--default-btn-color);
     border-radius: 6px;
     border: none;
     cursor: pointer;
+    padding: 8px 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-has-icon {
+    gap: 10px;
+}
+
+.btn-end-icon {
+    flex-direction: row-reverse;
+
+}
+
+.btn .material-icons {
+    font-style: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    text-align: inherit;
 }
