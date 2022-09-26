@@ -41,7 +41,6 @@ const Main = ({header, content}) => {
             name: 'Shadow',
             code: 'shadow',
             type: 'radio',
-
             default: 0,
             options: [
                 {
@@ -81,17 +80,17 @@ const Main = ({header, content}) => {
                 {
                     label: 'None',
                     name: 'display',
-                    value: 'none'
+                    value: ''
                 },
                 {
                     label: 'Start',
                     name: 'display',
-                    value: 'start'
+                    value: 'startIcon'
                 },
                 {
                     label: 'End',
                     name: 'display',
-                    value: 'end'
+                    value: 'endIcon'
                 }
             ]
         },
@@ -180,19 +179,47 @@ const Main = ({header, content}) => {
             ]
         }
     ];
-    const defaultText = data.find(item => item.code === 'children');
+    // const defaultText = data.find(item => item.code === 'children');
 
 
-    const [text, setText] = useState(defaultText.default);
+    // const [text, setText] = useState(defaultText.default);
     const [inputData, setInputData] = useState({});
     const inputDataHandler = (data) => {
         const changeData = {};
         changeData[data.name] = data.value;
-        const dataInput = {...inputData, ...changeData};
-        setInputData(dataInput);
-        console.log(inputData)
-    }
 
+
+        if((inputData.display && changeData.icon) ){
+            changeData[inputData.display] = changeData.icon;
+        } if( (inputData.icon && changeData.display)){
+            changeData[changeData.display] = inputData.icon;
+        } if(inputData.icon && inputData.display){
+            changeData[inputData.display] = inputData.icon;
+        }
+        //
+        console.log(inputData,changeData);
+        let dataInput = {...inputData, ...changeData};
+
+        if( inputData.endIcon && changeData.startIcon){
+            let {endIcon,...cloneInputData} = dataInput;
+            dataInput = {...cloneInputData}
+        }
+        if(inputData.endIcon && changeData.endIcon){
+            let {startIcon,...cloneInputData} = dataInput;
+            dataInput = {...cloneInputData}
+        }
+        console.log(changeData);
+        if( inputData.startIcon && changeData.endIcon){
+            let {startIcon,...cloneInputData} = dataInput;
+            dataInput = {...cloneInputData}
+        }
+        if(inputData.startIcon && changeData.startIcon){
+            let {endIcon,...cloneInputData} = dataInput;
+            dataInput = {...cloneInputData}
+        }
+        console.log(dataInput)
+        setInputData(dataInput);
+    }
     return (
         <div className="container">
             <div className="container-wrapper">
@@ -207,9 +234,10 @@ const Main = ({header, content}) => {
                                         <Button
                                             text={inputData.children ?  inputData.children :'text'}
                                             variant={inputData.variant ?  inputData.variant :'text'}
-                                            disabled={parseInt(inputData.disable) ? true : false   }
-                                            disableShadow={parseInt(inputData.shadow) ? true : false }
-                                            endIcon={'face'}
+                                            disabled={!!parseInt(inputData.disable)    }
+                                            disableShadow={!!parseInt(inputData.shadow) }
+                                            endIcon={inputData.endIcon}
+                                            startIcon={inputData.startIcon}
                                             size={inputData.size ? inputData.size : 'md'}
                                             color={inputData.color ? inputData.color : 'default'}
                                         />
