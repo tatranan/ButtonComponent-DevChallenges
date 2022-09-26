@@ -1,0 +1,12 @@
+.control-radio{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.control-radio__input{
+    margin: 0;
+
+}
+.control-radio__span{
+    font-weight: 400;
+}

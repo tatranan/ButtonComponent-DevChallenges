@@ -2,7 +2,8 @@ import React from "react";
 import {useState} from 'react';
 import './Button.css';
 
-const Button = ({variant, disableShadow, disabled, startIcon, endIcon, size, color}) => {
+const Button = ({text, variant, disableShadow, disabled, startIcon, endIcon, size, color}) => {
+
     let styles = {
         minWidth: '80px',
         backgroundColor: '#E0E0E0',
@@ -31,10 +32,10 @@ const Button = ({variant, disableShadow, disabled, startIcon, endIcon, size, col
         setIsHover(!isHover);
 
         const foundColor = findColor(color);
-        if (variant !== 'default' && foundColor.name !=='default') {
-            setHoverBgColor(setAlphaRGBA(foundColor.bgColor,0.1));
+        if (variant !== 'default' && foundColor.name !== 'default') {
+            setHoverBgColor(setAlphaRGBA(foundColor.bgColor, 0.1));
             setHoverColor(foundColor.bgColor);
-        }else{
+        } else {
             setHoverBgColor(foundColor.hoverBgColor);
             setHoverColor(foundColor.hoverColor);
         }
@@ -123,7 +124,7 @@ const Button = ({variant, disableShadow, disabled, startIcon, endIcon, size, col
                     color: isHover ? hoverColor : styles.color
                 }}
                 disabled={disabled}
-            ><span className="material-icons">{startIcon ? startIcon : endIcon}</span><span>Click</span>
+            ><span className="material-icons">{startIcon ? startIcon : endIcon}</span><span>{text}</span>
             </button>
         </div>
     );

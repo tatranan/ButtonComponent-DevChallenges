@@ -1,14 +1,31 @@
-.control {
-    padding: 15px 20px;
+.controls {
+    overflow: scroll;
+    height: 100%;
+}
+
+.table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    color: #333333;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: left;
+    width: 100%;
+    margin: 0px;
+}
+
+.table th {
+    color: rgba(51, 51, 51, 0.75);
+    padding: 15px;
+}
+
+.table td {
+    color: #333333;
+    padding: 15px;
+    font-weight: 600;
 }
 
 .table-row {
-    display: flex;
-    justify-content: space-between;
-}
-
-.table-row-item {
-    font-weight: bold;
-    font-size: 13px;
-    color: rgb(153, 153, 153);
+    border-top: 1px solid rgb(230, 230, 230);
+    background: transparent;
 }

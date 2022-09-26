@@ -7,7 +7,7 @@ const Tab = () => {
         <div className="tab">
             <div className="tab-wrap">
                 <div className="tab-item">
-                    <Link to="1" className="tab-link">Controls</Link>
+                    <Link to="1" className="tab-link">Docs</Link>
                 </div>
                 <div className="tab-item">
                     <Link to="1" className="tab-link">Actions</Link>

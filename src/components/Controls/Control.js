@@ -1,24 +1,32 @@
 import React from "react";
 import './Control.css';
+import ControlInput from "./ControlItem/Input/ControlInput";
+import ControlRadio from "./ControlItem/Radio/ControlRadio";
 
-const Control = () => {
+const Control = ({data,controlInputData}) => {
+
     return (
         <div className="controls">
             <div className="control">
-                <div className="table">
-                    <div className="table-row table-header">
-                        <div className="table-row-item">Name</div>
-                        <div className="table-row-item">Description</div>
-                        <div className="table-row-item">Action</div>
-                        <div className="table-row-item">Control</div>
-                    </div>
-                    <div className="table-row ">
-                        <div className="table-row-item"></div>
-                        <div className="table-row-item"></div>
-                        <div className="table-row-item"></div>
-                        <div className="table-row-item"></div>
-                    </div>
-                </div>
+                <table className="table">
+                    <thead>
+
+                    <tr className=" ">
+                        <th className="table-row-header">Name</th>
+                        <th className="table-row-header">Control</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {data.map((item) => {
+                        if (item.type === 'radio') {
+                            return (<ControlRadio key={item.code} name={item.name} options={item.options} controlInputData={controlInputData} defaultValue={item.default}/>)
+                        }
+                        return (<ControlInput key={item.code} code={item.code} name={item.name} controlInputData={controlInputData} defaultValue={item.default}/>)
+                    })}
+                    </tbody>
+
+                </table>
             </div>
         </div>
     )
