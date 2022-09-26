@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import './Sidebar.css'
 
 const Sidebar = () => {
@@ -23,10 +23,10 @@ const Sidebar = () => {
                             <a href="/#">Spaces</a>
                         </div>
                         <div className="nav-item">
-                            <Link to="/button">Buttons</Link>
+                            <NavLink className={({ isActive }) => (isActive ? 'is-active' : 'inactive')} to="/button">Buttons</NavLink>
                         </div>
                         <div className="nav-item">
-                            <Link to="/input">Inputs</Link>
+                            <NavLink className={({ isActive }) => (isActive ? 'is-active' : 'inactive')} to="/input">Inputs</NavLink>
                         </div>
                         <div className="nav-item">
                             <a href="/#">Grid</a>

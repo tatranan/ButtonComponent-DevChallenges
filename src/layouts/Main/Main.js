@@ -22,7 +22,7 @@ const Main = ({header, content}) => {
                                             variant={'text'}
                                             disabled={false}
                                             disableShadow={true}
-                                            endIcon={'local_grocery_store'}
+                                            endIcon={'face'}
                                             size={'lg'}
                                             color={'danger'}
                                         />

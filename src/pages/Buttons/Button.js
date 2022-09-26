@@ -10,22 +10,17 @@ const Button = ({variant, disableShadow, disabled, startIcon, endIcon, size, col
         color: '#3F3F3F',
         boxShadow: '0px 2px 3px rgba(51, 51, 51, 0.2)',
     }
-    let alphaColor = .4;
 
     const colors = [
         {name: 'default', bgColor: '#E0E0E0', hoverBgColor: '#AEAEAE', color: '#3F3F3F', hoverColor: ''},
-        {name: 'primary', bgColor: '#2962FF', hoverBgColor: '#0039CB', color: '#fff', hoverColor: '#fff'},
-        {name: 'secondary', bgColor: '#455A64', hoverBgColor: '#1C313A', color: '#fff', hoverColor: ''},
-        {name: 'danger', bgColor: '#D32F2F', hoverBgColor: '#9A0007', color: '#fff', hoverColor: '#fff'},
+        {name: 'primary', bgColor: 'rgba(41,98,255,1)', hoverBgColor: '#0039CB', color: '#fff', hoverColor: '#fff'},
+        {name: 'secondary', bgColor: 'rgba(69,90,100,1)', hoverBgColor: '#1C313A', color: '#fff', hoverColor: '#fff'},
+        {name: 'danger', bgColor: 'rgba(211,47,47,1)', hoverBgColor: '#9A0007', color: '#fff', hoverColor: '#fff'},
     ];
 
     const [hoverBgColor, setHoverBgColor] = useState(styles.backgroundColor);
     const [hoverColor, setHoverColor] = useState(styles.color);
     const [isHover, setIsHover] = useState(false);
-
-    const isEmptyProp = (prop) => {
-        return Object.keys(prop).length === 0 && prop.constructor === Object;
-    }
 
     const findColor = (color) => {
         const foundColor = colors.find(clr => clr.name === color);
@@ -36,12 +31,13 @@ const Button = ({variant, disableShadow, disabled, startIcon, endIcon, size, col
         setIsHover(!isHover);
 
         const foundColor = findColor(color);
-        setHoverBgColor(foundColor.hoverBgColor);
-        setHoverColor(foundColor.hoverColor);
-
-        // const rgbColor = getRGBAColor(e.target.style.color)
-        // const alpha = e.target.getAttribute('alphacolor');
-        // const bgColor = setAlphaRGBA(rgbColor, alpha);
+        if (variant !== 'default' && foundColor.name !=='default') {
+            setHoverBgColor(setAlphaRGBA(foundColor.bgColor,0.1));
+            setHoverColor(foundColor.bgColor);
+        }else{
+            setHoverBgColor(foundColor.hoverBgColor);
+            setHoverColor(foundColor.hoverColor);
+        }
     }
 
     const getRGBAColor = (colorRGBA) => {
@@ -52,8 +48,9 @@ const Button = ({variant, disableShadow, disabled, startIcon, endIcon, size, col
         return {red: 63, green: 63, blue: 63, alpha: 1};
     }
 
-    const setAlphaRGBA = (rgb, alpha) => {
-        const {red, green, blue} = rgb;
+    const setAlphaRGBA = (colorString, alpha) => {
+        const rgba = getRGBAColor(colorString);
+        const {red, green, blue} = rgba;
         return `rgba(${red},${green},${blue},${alpha})`;
     }
 
@@ -67,7 +64,6 @@ const Button = ({variant, disableShadow, disabled, startIcon, endIcon, size, col
                 border: `1px solid ${foundColor.bgColor}`,
                 color: `${foundColor.name === 'default' ? foundColor.color : foundColor.bgColor}`,
             }
-            alphaColor = 0.1;
             break;
         case 'text':
             styles = {
@@ -76,7 +72,6 @@ const Button = ({variant, disableShadow, disabled, startIcon, endIcon, size, col
                 border: 'none',
                 color: `${foundColor.name === 'default' ? foundColor.color : foundColor.bgColor}`,
             }
-            alphaColor = 0.1;
             break;
         default:
             styles = {
@@ -92,6 +87,7 @@ const Button = ({variant, disableShadow, disabled, startIcon, endIcon, size, col
             "color": "rgba(158, 158, 158,1)",
             "border": "none",
             "backgroundColor": "#e0e0e0",
+            "cursor": 'default',
         }
     }
 
@@ -127,7 +123,6 @@ const Button = ({variant, disableShadow, disabled, startIcon, endIcon, size, col
                     color: isHover ? hoverColor : styles.color
                 }}
                 disabled={disabled}
-                {...{"alphacolor": alphaColor}}
             ><span className="material-icons">{startIcon ? startIcon : endIcon}</span><span>Click</span>
             </button>
         </div>

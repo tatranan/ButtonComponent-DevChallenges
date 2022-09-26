@@ -39,3 +39,6 @@
 .nav-item a:hover, .nav-item a:active {
     color: var(--secondary-color);
 }
+.nav-item .is-active{
+    color: var(--secondary-color);
+}
