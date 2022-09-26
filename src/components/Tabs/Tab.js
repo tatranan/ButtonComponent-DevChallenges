@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import './Tab.css';
 
-export const Tab = () => {
+const Tab = () => {
     return (
         <div className="tab">
             <div className="tab-wrap">
@@ -16,3 +16,5 @@ export const Tab = () => {
         </div>
     )
 }
+
+export default Tab;

@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './Sidebar.css'
 
-export function Sidebar() {
+const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="sidebar-content">
-
                 <div className="logo">
                     <Link to="/" className="logo-link">
                         <span className="logo-text base-color">Dev</span>
@@ -38,3 +37,5 @@ export function Sidebar() {
         </div>
     );
 }
+
+export default Sidebar;

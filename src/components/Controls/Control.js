@@ -1,6 +1,7 @@
 import React from "react";
-import './Control.css'
-export const Control = () => {
+import './Control.css';
+
+const Control = () => {
     return (
         <div className="controls">
             <div className="control">
@@ -22,3 +23,5 @@ export const Control = () => {
         </div>
     )
 }
+
+export default Control;

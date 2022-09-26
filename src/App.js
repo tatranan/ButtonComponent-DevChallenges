@@ -1,17 +1,19 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom'
-// import routes from './pages/routes';
-import { Buttons } from './pages/Buttons';
-import { Main } from './layouts/Main';
-import { Inputs } from './pages/Inputs'
+import {Routes, Route} from 'react-router-dom'
+import {BrowserRouter} from "react-router-dom";
+import Main from './layouts/Main/Main';
+import Button from './pages/Buttons/Button';
+import Input from './pages/Inputs/Input';
+
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/button" element={<Main content={<Buttons />} header='Buttons' />} />
-      <Route path="/input" element={<Main content={<Inputs />} header='Inputs' />} />
-    </Routes>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Main/>}/>
+                <Route path="/button" element={<Main content={<Button/>} header='Buttons'/>}/>
+                <Route path="/input" element={<Main content={<Input/>} header='Inputs'/>}/>
+            </Routes>
+        </BrowserRouter>
+    );
 }
-// <Route path="/button" element={<Buttons />} />
+
 export default App;

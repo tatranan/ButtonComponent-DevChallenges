@@ -1,6 +1,7 @@
-.control{
+.control {
     padding: 15px 20px;
 }
+
 .table-row {
     display: flex;
     justify-content: space-between;

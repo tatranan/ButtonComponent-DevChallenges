@@ -2,7 +2,7 @@ import React from "react";
 import {useState} from 'react';
 import './Button.css';
 
-export function Button({variant, disableShadow, disabled}) {
+const Button = ({variant, disableShadow, disabled}) => {
     let styles = {
         width: '80px',
         height: '35px',
@@ -75,9 +75,10 @@ export function Button({variant, disableShadow, disabled}) {
         const {red, green, blue} = rgb;
         return `rgba(${red},${green},${blue},${alpha})`;
     }
-// const isDisabledShadow = {
-//     boxShadow: isDisableShadow ? 'none' : style.boxShadow,
-// }
+    if (disableShadow) {
+        styles = {...styles, boxShadow: 'none'}
+    }
+
 // const isDisableButton = {
 //     color: isDisabled ? 'rgb(158, 158, 158)' : style.color,
 //     border: isDisabled ? 'none' : style.border,
@@ -96,4 +97,6 @@ export function Button({variant, disableShadow, disabled}) {
             </button>
         </div>
     );
-} 
+}
+
+export default Button;

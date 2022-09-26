@@ -1,34 +1,41 @@
-.sidebar{
+.sidebar {
     width: 240px;
     background-color: var(--background-color);
     height: 100vh;
 }
-.sidebar-content{
-    margin:50px 55px;
+
+.sidebar-content {
+    margin: 50px 55px;
 }
-.logo-link{
+
+.logo-link {
     text-decoration: none;
 }
-.logo-text{
+
+.logo-text {
     font-size: 16px;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
 }
-.nav{
+
+.nav {
     margin-top: 120px;
 }
-.nav-wrap{
+
+.nav-wrap {
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
-.nav-item a{
+
+.nav-item a {
     text-decoration: none;
     color: var(--text-default-color);
     font-size: 14px;
     font-weight: 500;
     line-height: 20.27px;
 }
-.nav-item a:hover,.nav-item a:active{
+
+.nav-item a:hover, .nav-item a:active {
     color: var(--secondary-color);
 }
