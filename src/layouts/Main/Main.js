@@ -184,13 +184,15 @@ const Main = ({header, content}) => {
 
 
     const [text, setText] = useState(defaultText.default);
-    const [inputData, setInputData] = useState([]);
+    const [inputData, setInputData] = useState({});
     const inputDataHandler = (data) => {
-        setInputData(data)
+        const changeData = {};
+        changeData[data.name] = data.value;
+        const dataInput = {...inputData, ...changeData};
+        setInputData(dataInput);
+        console.log(inputData)
     }
-    const foundAttribute = (attributes,keyword)=>{
-        return attributes.find(attribute => attribute.name === keyword);
-    }
+
     return (
         <div className="container">
             <div className="container-wrapper">
@@ -203,13 +205,13 @@ const Main = ({header, content}) => {
                                 <div className="component-item">
                                     <div className="component-show">
                                         <Button
-                                            text={text}
-                                            variant={inputData ?  inputData.value :'text'}
-                                            disabled={false}
-                                            disableShadow={true}
+                                            text={inputData.children ?  inputData.children :'text'}
+                                            variant={inputData.variant ?  inputData.variant :'text'}
+                                            disabled={parseInt(inputData.disable) ? true : false   }
+                                            disableShadow={parseInt(inputData.shadow) ? true : false }
                                             endIcon={'face'}
-                                            size={'lg'}
-                                            color={'danger'}
+                                            size={inputData.size ? inputData.size : 'md'}
+                                            color={inputData.color ? inputData.color : 'default'}
                                         />
                                     </div>
                                 </div>
