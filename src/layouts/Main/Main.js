@@ -185,39 +185,39 @@ const Main = ({header, content}) => {
     // const [text, setText] = useState(defaultText.default);
     const [inputData, setInputData] = useState({});
     const inputDataHandler = (data) => {
-        const changeData = {};
+        let changeData = {};
         changeData[data.name] = data.value;
-
-
-        if((inputData.display && changeData.icon) ){
+        if ((inputData.display && changeData.icon)) {
             changeData[inputData.display] = changeData.icon;
-        } if( (inputData.icon && changeData.display)){
+        } else if ((inputData.icon && changeData.display)) {
             changeData[changeData.display] = inputData.icon;
-        } if(inputData.icon && inputData.display){
+        } else if (inputData.icon && inputData.display) {
             changeData[inputData.display] = inputData.icon;
         }
-        //
-        console.log(inputData,changeData);
+
         let dataInput = {...inputData, ...changeData};
 
-        if( inputData.endIcon && changeData.startIcon){
-            let {endIcon,...cloneInputData} = dataInput;
+        if(changeData.display === ''){
+            let {endIcon,startIcon, ...cloneInputData} = dataInput;
             dataInput = {...cloneInputData}
         }
-        if(inputData.endIcon && changeData.endIcon){
-            let {startIcon,...cloneInputData} = dataInput;
+
+        if (inputData.endIcon && changeData.startIcon) {
+            let {endIcon, ...cloneInputData} = dataInput;
             dataInput = {...cloneInputData}
         }
-        console.log(changeData);
-        if( inputData.startIcon && changeData.endIcon){
-            let {startIcon,...cloneInputData} = dataInput;
+        if (inputData.endIcon && changeData.endIcon) {
+            let {startIcon, ...cloneInputData} = dataInput;
             dataInput = {...cloneInputData}
         }
-        if(inputData.startIcon && changeData.startIcon){
-            let {endIcon,...cloneInputData} = dataInput;
+        if (inputData.startIcon && changeData.endIcon) {
+            let {startIcon, ...cloneInputData} = dataInput;
             dataInput = {...cloneInputData}
         }
-        console.log(dataInput)
+        if (inputData.startIcon && changeData.startIcon) {
+            let {endIcon, ...cloneInputData} = dataInput;
+            dataInput = {...cloneInputData}
+        }
         setInputData(dataInput);
     }
     return (
@@ -232,10 +232,10 @@ const Main = ({header, content}) => {
                                 <div className="component-item">
                                     <div className="component-show">
                                         <Button
-                                            text={inputData.children ?  inputData.children :'text'}
-                                            variant={inputData.variant ?  inputData.variant :'text'}
-                                            disabled={!!parseInt(inputData.disable)    }
-                                            disableShadow={!!parseInt(inputData.shadow) }
+                                            text={inputData.children ? inputData.children : 'text'}
+                                            variant={inputData.variant ? inputData.variant : 'text'}
+                                            disabled={!!parseInt(inputData.disable)}
+                                            disableShadow={!!parseInt(inputData.shadow)}
                                             endIcon={inputData.endIcon}
                                             startIcon={inputData.startIcon}
                                             size={inputData.size ? inputData.size : 'md'}
