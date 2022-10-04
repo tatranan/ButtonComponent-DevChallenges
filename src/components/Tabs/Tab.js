@@ -1,18 +1,19 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, {useState} from "react";
+// import {Link} from "react-router-dom";
 import './Tab.css';
+import TabItem from "./TabItem";
 
 const Tab = () => {
+    const [activeTab, setActiveTab] =useState('docs');
+
+
     return (
         <div className="tab">
-            <div className="tab-wrap">
-                <div className="tab-item">
-                    <Link to="1" className="tab-link">Docs</Link>
-                </div>
-                <div className="tab-item">
-                    <Link to="1" className="tab-link">Actions</Link>
-                </div>
-            </div>
+            <ul className="tab-wrap">
+                <TabItem id="docs" activeTab={activeTab} setActiveTab={setActiveTab} title="Docs"/>
+                <TabItem id="actions" activeTab={activeTab} setActiveTab={setActiveTab} title="Actions"/>
+
+            </ul>
         </div>
     )
 }
