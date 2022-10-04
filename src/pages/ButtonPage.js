@@ -1,8 +1,9 @@
 import React from 'react'
-import { useState } from 'react';
+import {useState} from 'react';
 import Button from '../components/Buttons/Button';
 import ContentFooter from '../layouts/ContentFooter/ContentFooter';
 import ContentHeader from '../layouts/ContentHeader/ContentHeader'
+
 const buttonAttributeDefault = [
     {
         name: 'Children',
@@ -69,7 +70,7 @@ const buttonAttributeDefault = [
     },
     {
         name: 'Icon Display',
-        code: 'icon_display',
+        code: 'display',
         type: 'radio',
         default: '',
         options: [
@@ -127,7 +128,7 @@ const buttonAttributeDefault = [
         name: 'Size',
         code: 'size',
         type: 'radio',
-        default: '',
+        default: 'md',
         options: [
             {
                 label: 'Small',
@@ -150,7 +151,7 @@ const buttonAttributeDefault = [
         name: 'Color',
         code: 'color',
         type: 'radio',
-        default: 'default',
+        default: 'primary',
         options: [
             {
                 label: 'Default',
@@ -177,8 +178,12 @@ const buttonAttributeDefault = [
 ];
 
 const ButtonPage = () => {
+    const buttonDefault = {}
+    buttonAttributeDefault.map(buttonAttr => {
+        return buttonDefault[buttonAttr.code] = buttonAttr.default;
+    })
+    const [inputData, setInputData] = useState(buttonDefault);
 
-    const [inputData, setInputData] = useState({});
     const inputDataHandler = (data) => {
         let changeData = {};
         changeData[data.name] = data.value;
@@ -190,50 +195,51 @@ const ButtonPage = () => {
             changeData[inputData.display] = inputData.icon;
         }
 
-        let dataInput = { ...inputData, ...changeData };
+        let dataInput = {...inputData, ...changeData};
 
         if (changeData.display === '') {
-            let { endIcon, startIcon, ...cloneInputData } = dataInput;
-            dataInput = { ...cloneInputData }
+            let {endIcon, startIcon, ...cloneInputData} = dataInput;
+            dataInput = {...cloneInputData}
         }
 
         if (inputData.endIcon && changeData.startIcon) {
-            let { endIcon, ...cloneInputData } = dataInput;
-            dataInput = { ...cloneInputData }
+            let {endIcon, ...cloneInputData} = dataInput;
+            dataInput = {...cloneInputData}
         }
         if (inputData.endIcon && changeData.endIcon) {
-            let { startIcon, ...cloneInputData } = dataInput;
-            dataInput = { ...cloneInputData }
+            let {startIcon, ...cloneInputData} = dataInput;
+            dataInput = {...cloneInputData}
         }
         if (inputData.startIcon && changeData.endIcon) {
-            let { startIcon, ...cloneInputData } = dataInput;
-            dataInput = { ...cloneInputData }
+            let {startIcon, ...cloneInputData} = dataInput;
+            dataInput = {...cloneInputData}
         }
         if (inputData.startIcon && changeData.startIcon) {
-            let { endIcon, ...cloneInputData } = dataInput;
-            dataInput = { ...cloneInputData }
+            let {endIcon, ...cloneInputData} = dataInput;
+            dataInput = {...cloneInputData}
         }
+        console.log(inputData);
         setInputData(dataInput);
     }
 
     return (
         <>
-            <ContentHeader header="Buttons" />
+            <ContentHeader header="Buttons"/>
             <div className='main-content'>
-            <Button
-                text={inputData.children ? inputData.children : 'text'}
-                variant={inputData.variant ? inputData.variant : 'text'}
-                disabled={!!parseInt(inputData.disable)}
-                disableShadow={!!parseInt(inputData.shadow)}
-                endIcon={inputData.endIcon}
-                startIcon={inputData.startIcon}
-                size={inputData.size ? inputData.size : 'md'}
-                color={inputData.color ? inputData.color : 'default'}
-            />
+                <Button
+                    text={inputData.children}
+                    variant={inputData.variant}
+                    disabled={!!parseInt(inputData.disable)}
+                    disableShadow={!!parseInt(inputData.shadow)}
+                    endIcon={inputData.endIcon}
+                    startIcon={inputData.startIcon}
+                    size={inputData.size}
+                    color={inputData.color}
+                />
             </div>
             <ContentFooter
                 controlActions={inputDataHandler}
-                data={buttonAttributeDefault} />
+                data={buttonAttributeDefault}/>
         </>
 
     )
