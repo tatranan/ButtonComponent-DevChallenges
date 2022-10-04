@@ -1,0 +1,6 @@
+.footer {
+    margin-top: auto;
+    height: 350px;
+    border-top: 2px solid var(--gray-color-2);
+    width: 100%;
+}

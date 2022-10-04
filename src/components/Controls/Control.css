@@ -1,6 +1,6 @@
 .controls {
-    overflow: scroll;
-    height: 100%;
+    overflow-y: scroll;
+    height: calc(100% - var(--tab-height));
 }
 
 .table {

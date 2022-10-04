@@ -1,13 +1,13 @@
 import React from 'react';
 import './ControlRadio.css';
 
-const ControlRadio = ({name, options, defaultValue,controlInputData}) => {
-    const inputChangedHandler = (event)=>{
+const ControlRadio = ({ name, options, controlData }) => {
+    const inputChangedHandler = (event) => {
         const data = {
             name: event.target.name,
             value: event.target.value
         }
-        controlInputData(data);
+        controlData(data);
     }
     return (
         <tr className="table-row">
@@ -15,10 +15,10 @@ const ControlRadio = ({name, options, defaultValue,controlInputData}) => {
                 <span>{name}</span>
             </td>
             <td className="">
-                {options.map((item,key) => {
+                {options.map((item, key) => {
                     return (
                         <div key={key} className="control-radio" onChange={inputChangedHandler}>
-                            <input className="control-radio__input" type="radio" id={`${item.name}-${key}`} name={item.name} value={item.value}/>
+                            <input className="control-radio__input" type="radio" id={`${item.name}-${key}`} name={item.name} value={item.value} />
                             <label className="control-radio__span" htmlFor={`${item.name}-${key}`}>{item.label}</label>
                         </div>
                     )

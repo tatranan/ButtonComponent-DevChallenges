@@ -1,13 +1,13 @@
 import React from 'react';
 import './ControlInput.css';
 
-const ControlInput = ({name, defaultValue, controlInputData,code}) => {
+const ControlInput = ({ name, defaultValue, controlData, code }) => {
     const inputHandler = (e) => {
         const data = {
             name: e.target.name,
             value: e.target.value
         }
-        controlInputData(data);
+        controlData(data);
     }
     return (
         <tr className="table-row ">
@@ -16,7 +16,7 @@ const ControlInput = ({name, defaultValue, controlInputData,code}) => {
             </td>
             <td className="">
                 <div>
-                    <input className="control-input" name={code}  onChange={inputHandler} type="text" defaultValue={defaultValue}/>
+                    <input className="control-input" name={code} onChange={inputHandler} type="text" defaultValue={defaultValue} />
                 </div>
             </td>
 

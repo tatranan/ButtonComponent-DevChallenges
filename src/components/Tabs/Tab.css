@@ -1,5 +1,6 @@
 .tab {
     border-bottom: 1px solid var(--gray-color-2);
+    height: var(--tab-height);
 }
 
 .tab-wrap {

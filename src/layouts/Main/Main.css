@@ -2,6 +2,14 @@
 
 * {
     font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
 :root {
@@ -16,6 +24,8 @@
     --text-primary-color: #FAFBFD;
 
     --active-default-color: #1EA7FD;
+
+    --tab-height: 50px;
 }
 
 .base-color {
@@ -40,27 +50,8 @@
     margin: 50px 80px;
 }
 
-.content-header {
-    margin-bottom: 50px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 36px;
-}
-
 .main-content {
-
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.components {
-}
-
-.content-footer {
-    margin-top: auto;
-    height: 255px;
-    border-top: 2px solid var(--gray-color-2);
-    width: 100%;
 }
