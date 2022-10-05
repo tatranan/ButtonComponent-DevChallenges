@@ -1,0 +1,33 @@
+.tab-link {
+    white-space: normal;
+    display: inline-flex;
+    overflow: hidden;
+    vertical-align: top;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.2s linear 0s, border-bottom-color 0.2s linear 0s;
+    line-height: 12px;
+    cursor: pointer;
+    background: transparent;
+    border-width: 3px 0px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    font-weight: bold;
+    font-size: 13px;
+    color: #999999;
+    height: calc(100% - 6px);
+}
+.tab-active {
+    color: var(--active-default-color);
+    border-bottom: 3px solid var(--active-default-color);
+}
+.tab-link:hover {
+    color: var(--active-default-color);
+}
+
+

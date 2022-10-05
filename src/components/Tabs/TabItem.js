@@ -1,15 +1,15 @@
 import React from 'react';
-// import classes from './Tab.css';
+import classes from './TabItem.module.css';
 
-const TabItem = ({title, id, activeTab, setActiveTab}) => {
-
+const TabItem = ({ title, id, activeTab, setActiveTab }) => {
     const tabClickHandler = () => {
         setActiveTab(id)
     }
-    const className = `tab-item ${activeTab === id ? 'active' : ''}`;
+
+    const className = `${classes['tab-link']} ${activeTab === id ? classes['tab-active'] : ''}`;
     return (
-        <li className={className}>
-            <div className="tab-link" onClick={tabClickHandler}>{title}</div>
+        <li className="tab-item">
+            <div className={className} onClick={tabClickHandler}>{title}</div>
         </li>
     );
 };

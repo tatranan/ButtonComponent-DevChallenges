@@ -1,9 +1,10 @@
 import React from 'react'
-import {useState} from 'react';
+import { useState } from 'react';
 import Button from '../components/Buttons/Button';
-import ContentFooter from '../layouts/ContentFooter/ContentFooter';
 import ContentHeader from '../layouts/ContentHeader/ContentHeader'
-
+import Control from '../components/Controls/Control';
+import TabWrap from '../components/Tabs/TabWrap';
+import Tabs from '../components/Tabs/Tabs';
 const buttonAttributeDefault = [
     {
         name: 'Children',
@@ -177,6 +178,8 @@ const buttonAttributeDefault = [
     }
 ];
 
+
+
 const ButtonPage = () => {
     const buttonDefault = {}
     buttonAttributeDefault.map(buttonAttr => {
@@ -195,36 +198,52 @@ const ButtonPage = () => {
             changeData[inputData.display] = inputData.icon;
         }
 
-        let dataInput = {...inputData, ...changeData};
+        let dataInput = { ...inputData, ...changeData };
 
         if (changeData.display === '') {
-            let {endIcon, startIcon, ...cloneInputData} = dataInput;
-            dataInput = {...cloneInputData}
+            let { endIcon, startIcon, ...cloneInputData } = dataInput;
+            dataInput = { ...cloneInputData }
         }
 
         if (inputData.endIcon && changeData.startIcon) {
-            let {endIcon, ...cloneInputData} = dataInput;
-            dataInput = {...cloneInputData}
+            let { endIcon, ...cloneInputData } = dataInput;
+            dataInput = { ...cloneInputData }
         }
         if (inputData.endIcon && changeData.endIcon) {
-            let {startIcon, ...cloneInputData} = dataInput;
-            dataInput = {...cloneInputData}
+            let { startIcon, ...cloneInputData } = dataInput;
+            dataInput = { ...cloneInputData }
         }
         if (inputData.startIcon && changeData.endIcon) {
-            let {startIcon, ...cloneInputData} = dataInput;
-            dataInput = {...cloneInputData}
+            let { startIcon, ...cloneInputData } = dataInput;
+            dataInput = { ...cloneInputData }
         }
         if (inputData.startIcon && changeData.startIcon) {
-            let {endIcon, ...cloneInputData} = dataInput;
-            dataInput = {...cloneInputData}
+            let { endIcon, ...cloneInputData } = dataInput;
+            dataInput = { ...cloneInputData }
         }
         console.log(inputData);
         setInputData(dataInput);
     }
-
+    const tabs = [
+        {
+            id: 'tab-1',
+            title: 'Controls',
+            content: <Control data={buttonAttributeDefault} controlData={inputDataHandler} />
+        },
+        {
+            id: 'tab-2',
+            title: 'Actions',
+            content: 'Actions'
+        },
+        {
+            id: 'tab-3',
+            title: 'Document',
+            content: 'Document'
+        },
+    ];
     return (
         <>
-            <ContentHeader header="Buttons"/>
+            <ContentHeader header="Buttons" />
             <div className='main-content'>
                 <Button
                     text={inputData.children}
@@ -237,9 +256,10 @@ const ButtonPage = () => {
                     color={inputData.color}
                 />
             </div>
-            <ContentFooter
-                controlActions={inputDataHandler}
-                data={buttonAttributeDefault}/>
+            <TabWrap>
+                <Tabs tabs={tabs} />
+            </TabWrap>
+
         </>
 
     )

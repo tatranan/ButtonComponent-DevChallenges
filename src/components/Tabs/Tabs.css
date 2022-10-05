@@ -1,0 +1,17 @@
+.tabs {
+    border-bottom: 1px solid var(--gray-color-2);
+    height: var(--tab-height);
+}
+
+.tab-list {
+    display: flex;
+    padding: 0px 15px;
+    gap: 15px;
+    list-style: none;
+    height: 100%;
+}
+
+.tab-contents {
+    overflow-y: scroll;
+    height: calc(100% - var(--tab-height));
+}
