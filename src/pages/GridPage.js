@@ -1,11 +1,12 @@
 import React from 'react'
 import ContentHeader from '../layouts/ContentHeader/ContentHeader';
-const InputPage = () => {
+
+const GridPage = () => {
     return (
         <>
-            <ContentHeader header="Inputs" />
+            <ContentHeader header="Grid" />
         </>
     )
 }
 
-export default InputPage;
+export default GridPage;

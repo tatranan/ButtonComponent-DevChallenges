@@ -1,11 +1,12 @@
 import React from 'react'
 import ContentHeader from '../layouts/ContentHeader/ContentHeader';
-const InputPage = () => {
+
+const ColorPage = () => {
     return (
         <>
-            <ContentHeader header="Inputs" />
+            <ContentHeader header="Colors" />
         </>
     )
 }
 
-export default InputPage;
+export default ColorPage;

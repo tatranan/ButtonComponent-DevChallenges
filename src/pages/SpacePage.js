@@ -1,11 +1,12 @@
 import React from 'react'
 import ContentHeader from '../layouts/ContentHeader/ContentHeader';
-const InputPage = () => {
+
+const SpacePage = () => {
     return (
         <>
-            <ContentHeader header="Inputs" />
+            <ContentHeader header="Spaces" />
         </>
     )
 }
 
-export default InputPage;
+export default SpacePage;

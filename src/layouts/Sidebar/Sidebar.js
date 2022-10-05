@@ -1,4 +1,4 @@
-import {Link, NavLink} from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Sidebar.css'
 
 const Sidebar = () => {
@@ -14,13 +14,13 @@ const Sidebar = () => {
                 <div className="nav">
                     <div className="nav-wrap">
                         <div className="nav-item">
-                            <a href="/#">Colors</a>
+                            <NavLink className={({ isActive }) => (isActive ? 'is-active' : 'inactive')} to="/color">Colors</NavLink>
                         </div>
                         <div className="nav-item">
-                            <a href="/#">Typography</a>
+                            <NavLink className={({ isActive }) => (isActive ? 'is-active' : 'inactive')} to="/typography">Typography</NavLink>
                         </div>
                         <div className="nav-item">
-                            <a href="/#">Spaces</a>
+                            <NavLink className={({ isActive }) => (isActive ? 'is-active' : 'inactive')} to="/space">Spaces</NavLink>
                         </div>
                         <div className="nav-item">
                             <NavLink className={({ isActive }) => (isActive ? 'is-active' : 'inactive')} to="/button">Buttons</NavLink>
@@ -29,7 +29,7 @@ const Sidebar = () => {
                             <NavLink className={({ isActive }) => (isActive ? 'is-active' : 'inactive')} to="/input">Inputs</NavLink>
                         </div>
                         <div className="nav-item">
-                            <a href="/#">Grid</a>
+                            <NavLink className={({ isActive }) => (isActive ? 'is-active' : 'inactive')} to="/grid">Grid</NavLink>
                         </div>
                     </div>
                 </div>

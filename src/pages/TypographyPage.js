@@ -1,11 +1,12 @@
 import React from 'react'
 import ContentHeader from '../layouts/ContentHeader/ContentHeader';
-const InputPage = () => {
+
+const TypographyPage = () => {
     return (
         <>
-            <ContentHeader header="Inputs" />
+            <ContentHeader header="Typography" />
         </>
     )
 }
 
-export default InputPage;
+export default TypographyPage;
