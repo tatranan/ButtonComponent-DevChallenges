@@ -3,7 +3,7 @@ import './ControlRadio.css';
 
 const ControlRadio = ({ name, options, controlData, defaultValue }) => {
     const [buttonState, setButtonState] = useState(defaultValue);
-    
+
     const inputChangedHandler = (event) => {
         const data = {
             name: event.target.name,
@@ -19,7 +19,6 @@ const ControlRadio = ({ name, options, controlData, defaultValue }) => {
             </td>
             <td className="">
                 {options.map((item, key) => {
-
                     return (
                         <div key={key} className="control-radio" >
                             <input

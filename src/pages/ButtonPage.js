@@ -40,34 +40,34 @@ const buttonAttributeDefault = [
         name: 'Shadow',
         code: 'shadow',
         type: 'radio',
-        default: 0,
+        default: '0',
         options: [
             {
                 label: 'Disable',
                 name: 'shadow',
-                value: 0
+                value: '0'
             },
             {
                 label: 'Enable',
                 name: 'shadow',
-                value: 1
+                value: '1'
             }]
     },
     {
         name: "Disable",
         code: 'disabled',
         type: 'radio',
-        default: 0,
+        default: '0',
         options: [
             {
                 label: 'Disable',
                 name: 'disable',
-                value: 0
+                value: '0'
             },
             {
                 label: 'Enable',
                 name: 'disable',
-                value: 1
+                value: '1'
             }]
     },
     {
