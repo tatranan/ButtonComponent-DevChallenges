@@ -5,6 +5,7 @@ import ContentHeader from '../layouts/ContentHeader/ContentHeader'
 import Control from '../components/Controls/Control';
 import TabWrap from '../components/Tabs/TabWrap';
 import Tabs from '../components/Tabs/Tabs';
+import Docs from '../components/Docs/Docs'
 const buttonAttributeDefault = [
     {
         name: 'Children',
@@ -221,7 +222,6 @@ const ButtonPage = () => {
             let { endIcon, ...cloneInputData } = dataInput;
             dataInput = { ...cloneInputData }
         }
-        console.log(inputData);
         setInputData(dataInput);
     }
     const tabs = [
@@ -238,7 +238,7 @@ const ButtonPage = () => {
         {
             id: 'tab-3',
             title: 'Document',
-            content: 'Document'
+            content: <Docs/>
         },
     ];
     return (
